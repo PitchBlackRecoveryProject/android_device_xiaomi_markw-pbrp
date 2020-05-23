@@ -99,3 +99,5 @@ SHRP_FONP_1 := /sys/class/leds/led:torch_0/brightness
 SHRP_FONP_2 := /sys/class/leds/led:torch_1/brightness
 SHRP_FONP_3 := /sys/class/leds/led:switch/brightness
 SHRP_FLASH_MAX_BRIGHTNESS := 200
+SHRP_OFFICIAL := true
+SHRP_EXPRESS := true
