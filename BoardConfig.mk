@@ -80,7 +80,19 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_CRYPTO := true
 
-TW_DEVICE_VERSION := 1-Tostisto
+## Crypto
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TARGET_HW_DISK_ENCRYPTION := true
+
+# SAR
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+
+## Treble
+BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
+TARGET_COPY_OUT_VENDOR := vendor
+
+## TWRP version
+TW_DEVICE_VERSION := Tostisto
 
 
 #SHRP_Variables
@@ -101,3 +113,4 @@ SHRP_FONP_3 := /sys/class/leds/led:switch/brightness
 SHRP_FLASH_MAX_BRIGHTNESS := 200
 SHRP_OFFICIAL := true
 SHRP_EXPRESS := true
+SHRP_DARK := true
