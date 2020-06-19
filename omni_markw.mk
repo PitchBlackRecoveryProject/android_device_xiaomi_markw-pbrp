@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2016 The Android Open Source Project
 # Copyright (C) 2016 The TWRP Open Source Project
@@ -15,18 +16,11 @@
 # limitations under the License.
 #
 
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/omni/config/gsm.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, build/target/product/embedded.mk)
 
-# Inherit Telephony packages
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Inherit 64bit support
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
 #Fix HW FDE when building with Pie
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -35,7 +29,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := markw
 PRODUCT_NAME := omni_markw
-PRODUCT_BRAND := xiaomi
-PRODUCT_MODEL := Xiaomi Redmi 4 prime
-PRODUCT_MANUFACTURER := xiaomi
-PRODUCT_RELEASE_NAME := Xiaomi Redmi 4 prime
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi 4
+PRODUCT_MANUFACTURER := Xiaomi
