@@ -1,7 +1,5 @@
-
 #
-# Copyright (C) 2016 The Android Open Source Project
-# Copyright (C) 2016 The TWRP Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -66,15 +64,15 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 58846064640 # (58846081024-16384)
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-# SAR
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-
 ## Recovery
 #BOARD_HAS_NO_SELECT_BUTTON := true
 #BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -89,8 +87,6 @@ TW_IGNORE_MISC_WIPE_DATA := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_NO_EXFAT_FUSE := true
 
-TW_EXCLUDE_TWRPAPP := true
-
 # Supress error messages while building
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -102,14 +98,12 @@ TARGET_USES_LOGD := true
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
 TARGET_COPY_OUT_VENDOR := vendor
 
-## TWRP version
 TW_DEVICE_VERSION := Tostisto
 
 #SHRP_Variables
 SHRP_PATH := device/xiaomi/markw
 SHRP_MAINTAINER := Tostisto
 SHRP_DEVICE_CODE := markw
-SHRP_EDL_MODE := 1
 SHRP_EXTERNAL := /external_sd
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usbotg
@@ -123,4 +117,3 @@ SHRP_FONP_3 := /sys/class/leds/led:switch/brightness
 SHRP_FLASH_MAX_BRIGHTNESS := 200
 SHRP_OFFICIAL := true
 SHRP_EXPRESS := true
-SHRP_DARK := true

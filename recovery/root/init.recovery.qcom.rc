@@ -9,8 +9,8 @@ on fs
     start pulldecryptfiles
     install_keyring
     setprop ro.hardware.bootctrl msm8953
-
-
+	
+	
     # Needed to make qseecomd work in recovery
     chmod 0777 /dev/qseecom
     chmod 0664 /dev/ion
