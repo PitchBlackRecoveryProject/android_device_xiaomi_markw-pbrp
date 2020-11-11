@@ -17,10 +17,13 @@
 # Release name
 PRODUCT_RELEASE_NAME := markw
 
-$(call inherit-product, build/target/product/embedded.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit common product files.
+$(call inherit-product, vendor/pb/config/common.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 #Fix HW FDE when building with Pie
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -30,5 +33,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEVICE := markw
 PRODUCT_NAME := omni_markw
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 4
+PRODUCT_MODEL := Redmi 4 Prime
 PRODUCT_MANUFACTURER := Xiaomi
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.treble.enabled=true \
+    sys.usb.controller=a600000.dwc3 \
+    persist.sys.usb.config=mtp \
+    persist.service.adb.enable=1 \
+    persist.service.debuggable=1
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE=markw \
+    PRODUCT_NAME=markw \
+    TARGET_VENDOR_PRODUCT_NAME=markw \
+    TARGET_VENDOR_DEVICE_NAME=markw

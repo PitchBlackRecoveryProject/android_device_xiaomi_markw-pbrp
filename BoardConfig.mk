@@ -38,8 +38,11 @@ TARGET_BOOTLOADER_BOARD_NAME := markw
 TARGET_NO_BOOTLOADER := true
 
 ## Crypto
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TW_INCLUDE_CRYPTO := true
 TARGET_HW_DISK_ENCRYPTION := true
+TW_INCLUDE_FBE := true
+TW_INCLUDE_CRYPTO_FBE := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 ## Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive
@@ -86,6 +89,11 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 TW_IGNORE_MISC_WIPE_DATA := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_NO_EXFAT_FUSE := true
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone6/temp
+TW_OZIP_DECRYPT_KEY := "1c4c1ea3a12531ae491b21bb31613c11"
+TW_EXTRA_LANGUAGES := true
+TW_DEFAULT_LANGUAGE := en
+TW_SKIP_COMPATIBILITY_CHECK := true
 
 # Supress error messages while building
 ALLOW_MISSING_DEPENDENCIES := true
@@ -98,22 +106,31 @@ TARGET_USES_LOGD := true
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
 TARGET_COPY_OUT_VENDOR := vendor
 
-TW_DEVICE_VERSION := Tostisto
+# Workaround for error copying vendor files to recovery ramdisk
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
 
-#SHRP_Variables
-SHRP_PATH := device/xiaomi/markw
-SHRP_MAINTAINER := Tostisto
-SHRP_DEVICE_CODE := markw
-SHRP_EXTERNAL := /external_sd
-SHRP_INTERNAL := /sdcard
-SHRP_OTG := /usbotg
-SHRP_REC := /dev/block/mmcblk0p22
-SHRP_REC_TYPE := Treble
-SHRP_DEVICE_TYPE := A-Only
-SHRP_FLASH := 1
-SHRP_FONP_1 := /sys/class/leds/led:torch_0/brightness
-SHRP_FONP_2 := /sys/class/leds/led:torch_1/brightness
-SHRP_FONP_3 := /sys/class/leds/led:switch/brightness
-SHRP_FLASH_MAX_BRIGHTNESS := 200
-SHRP_OFFICIAL := true
-SHRP_EXPRESS := true
+TW_DEVICE_VERSION := Tostisto
+TW_HAS_EDL_MODE := true
+
+# Android Verified Boot
+BOARD_AVB_ENABLE := false
+BOARD_BUILD_DISABLED_VBMETAIMAGE := true
+
+
+# exFAT FS Support
+TW_INCLUDE_FUSE_EXFAT := true
+
+# NTFS Support
+TW_INCLUDE_FUSE_NTFS := true
+
+# Debug
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
+
+
+# TORCH
+PB_TORCH_PATH := "/sys/class/leds/led:torch_0"
+
+
+
