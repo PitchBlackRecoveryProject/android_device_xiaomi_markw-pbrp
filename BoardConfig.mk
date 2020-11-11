@@ -110,13 +110,11 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
-TW_DEVICE_VERSION := Tostisto
 TW_HAS_EDL_MODE := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := false
 BOARD_BUILD_DISABLED_VBMETAIMAGE := true
-
 
 # exFAT FS Support
 TW_INCLUDE_FUSE_EXFAT := true
@@ -127,7 +125,6 @@ TW_INCLUDE_FUSE_NTFS := true
 # Debug
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
-
 
 # TORCH
 PB_TORCH_PATH := "/sys/class/leds/led:torch_0"
