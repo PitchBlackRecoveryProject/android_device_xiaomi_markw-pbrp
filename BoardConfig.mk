@@ -94,13 +94,16 @@ TW_OZIP_DECRYPT_KEY := "1c4c1ea3a12531ae491b21bb31613c11"
 TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_LANGUAGE := en
 TW_SKIP_COMPATIBILITY_CHECK := true
-
+PB_DISABLE_DEFAULT_DM_VERITY := true
 # Supress error messages while building
 ALLOW_MISSING_DEPENDENCIES := true
 
 #enable Logcat in twrp
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# Mke2fs
+TARGET_USES_MKE2FS := true
 
 ## Treble
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
